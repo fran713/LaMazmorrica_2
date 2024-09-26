@@ -1,0 +1,19 @@
+{% extends "layouts/base.html" %}
+
+
+{% block title %}Sing up - LA MAZMORRICA{% endblock %}
+
+
+{% block content %}
+{{error}}
+
+<form action="/signin/" method ="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>
+        Login
+    </button>
+</form>
+
+
+{% endblock %}

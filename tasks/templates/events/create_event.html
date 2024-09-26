@@ -1,0 +1,19 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Crear evento - LA MAZMORRICA{% endblock %}
+
+
+{{error}}
+{% block content %}
+<h1> Crear un evento</h1>
+<form  action="/event/create/" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>
+        save
+    </button>
+</form>
+
+
+
+{% endblock %}

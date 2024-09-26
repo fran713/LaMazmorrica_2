@@ -1,0 +1,131 @@
+body {
+    font-family: 'Helvetica', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #000;
+    color: #fff;
+}
+.card{
+    background: whitesmoke;
+    color: black;
+    padding: 10px;
+    margin-bottom: 2px ;
+
+}
+.input{
+    background: wheat;
+    padding: 10px;
+    text-align: center;
+    display: block;
+
+}
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    border-bottom: 1px solid #555;
+}
+.top-bar img {
+    height: 70px;
+    cursor: pointer;
+}
+.top-bar .auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+.top-bar button {
+    background: none;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.top-bar button:hover {
+    background-color: #ff0000;
+    color: #000;
+}
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #000;
+    border-bottom: 1px solid #333;
+}
+header h1 {
+    font-family: 'Oswald', sans-serif;
+    color: #ff0000;
+}
+h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+}
+nav {
+    text-align: center;
+    margin: 20px 0;
+}
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+nav a:hover {
+    background-color: #ff0000;
+    color: #000;
+}
+.content {
+    margin: 20px;
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #000;
+    border-top: 1px solid #333;
+    margin-top: 20px;
+}
+footer p {
+    margin: 5px 0;
+}
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+footer a:hover {
+    color: #ff0000;
+}
+@media (max-width: 768px) {
+    .top-bar, nav, footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav a {
+        margin: 10px 0;
+    }
+    .content {
+        margin: 10px;
+    }
+}
+@media (max-width: 480px) {
+    .top-bar, nav, footer {
+        padding: 10px;
+    }
+    .top-bar img {
+        height: 70px;
+    }
+    .top-bar .auth-buttons {
+        flex-direction: column;
+    }
+    .top-bar button {
+        padding: 5px;
+    }
+    .container{
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px 0;
+    }
+}

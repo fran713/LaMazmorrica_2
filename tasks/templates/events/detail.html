@@ -1,0 +1,25 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Detalle evento - LA MAZMORRICA{% endblock %}
+
+{% block content %}
+
+    <h1>{{event.title}}</h1>
+    {{error}}
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>
+            update
+        </button>
+    </form>
+
+    <form action="{% url 'complete_event' event.id %}"method="POST"> 
+        {% csrf_token %}
+        <button>
+            complete
+        </button>
+    </form>
+
+
+{% endblock %}

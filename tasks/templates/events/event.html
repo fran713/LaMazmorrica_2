@@ -1,0 +1,31 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Eventos - LA MAZMORRICA{% endblock %}
+{% block content %}
+
+<h1>Eventos Pendientes</h1>
+<a href="{% url 'create_event' %}">
+    <button>Añadir evento</button>
+
+</a>
+<ul>
+    {% for event in events %}
+
+    <li>
+        <a href="{% url 'detail_event' event.id %}">
+            {% if event.important %}
+                <strong>{{event.title}} </strong>
+            {% else %}
+                <h1>{{event.title}} </h1>
+            {% endif %}
+            <p>{{event.description}}</p>
+            <p>{{event.user.username}}</p>
+        </a>
+    </li>
+
+    {% endfor%}
+</ul>
+
+
+
+{% endblock %}

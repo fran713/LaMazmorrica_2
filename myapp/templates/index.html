@@ -1,0 +1,94 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block title %}Inicio - LA MAZMORRICA{% endblock %}
+
+
+
+{% block content %}
+
+<div class="container">
+    <div class="box" style="background-color: #000; border: none;">TEXTO</div>
+    <div class="box">
+        <div class="carousel">
+            <img src="https://via.placeholder.com/800x300?text=Foto+1" class="active" alt="Foto 1">
+            <img src="https://via.placeholder.com/800x300?text=Foto+2" alt="Foto 2">
+            <img src="https://via.placeholder.com/800x300?text=Foto+3" alt="Foto 3">
+            <div class="carousel-controls">
+                <button id="prev">&lt;</button>
+                <button id="next">&gt;</button>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .carousel {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+    }
+    .carousel img {
+        width: 100%;
+        height: 100%;
+        display: none;
+        object-fit: cover;
+    }
+    .carousel img.active {
+        display: block;
+    }
+    .carousel-controls {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+    }
+    .carousel-controls button {
+        background: rgba(0, 0, 0, 0.3);
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        padding: 10px;
+    }
+    .carousel-controls button:hover {
+        background: rgba(0, 0, 0, 0.5);
+    }
+</style>
+<script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.carousel img');
+    const totalImages = images.length;
+    const intervalTime = 3000;
+    let autoSlide;
+
+    const showNextImage = () => {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % totalImages;
+        images[currentIndex].classList.add('active');
+    };
+
+    const showPrevImage = () => {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+        images[currentIndex].classList.add('active');
+    };
+
+    document.getElementById('next').addEventListener('click', () => {
+        clearInterval(autoSlide);
+        showNextImage();
+        autoSlide = setInterval(showNextImage, intervalTime);
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+        clearInterval(autoSlide);
+        showPrevImage();
+        autoSlide = setInterval(showNextImage, intervalTime);
+    });
+
+    autoSlide = setInterval(showNextImage, intervalTime);
+</script>
+{% endblock %}

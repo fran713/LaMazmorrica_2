@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LA MAZMORRICA{% endblock %}</title>
+    <link rel="stylesheet" href="{% static '/styles/main.css' %}" >
+
+</head>
+<body>
+    <div class="top-bar">
+        <img src="{% static 'logo_Maz.png' %}" alt="Logo" width="113" height="70" >
+        <div class="auth-buttons">
+
+            {% if user.is_authenticated %}
+            <a href="{% url 'signout' %}">
+                <button>Logout</button>
+            </a>
+            {% else %}
+            <a href="{% url 'signup' %}">
+                <button>Registrarse</button>
+            </a>
+            <a href="{% url 'signin' %}">
+                <button>Login</button>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    <header>
+        <h1>LA MAZMORRICA</h1>
+    </header>
+    <nav>
+        <a href={%url 'index'%}>HOME</a>
+        <a href={%url 'tasks'%}>BIBLIOTECA</a>
+        <a href={%url 'events'%}>EVENTOS</a>
+        <a href={%url 'projects'%}>MAZMORRAS</a>
+    </nav>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+    <footer>
+        <p>Contacta con nosotros: info@lamazmorrica.com</p>
+        <p>Síguenos en redes sociales:</p>
+        <p>
+            <a href="#">Telegram</a> | 
+            <a href="#">Fetlife</a> | 
+            <a href="#">Instagram</a>
+        </p>
+    </footer>
+</body>
+</html>
